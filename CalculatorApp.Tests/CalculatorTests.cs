@@ -64,6 +64,23 @@ public class CalculatorTests
         Assert.That(result, Is.EqualTo(8));
     }
 
+    [Test]
+    public void Add_WithCustomDelimiter_ReturnsSum()
+    {
+        var input = "//#\n2#5";
+        var result = _calculator.Add(input);
+        Assert.That(result, Is.EqualTo(7));
+    }
+    
+    [Test]
+    public void Add_WithCustomDelimiterSecondExample_ReturnsSum()
+    {
+        var input = "//,\n2,ff,100";
+        var result = _calculator.Add(input);
+        Assert.That(result, Is.EqualTo(102));
+    }
+
+
     // This test was working before step 2
     // [Test]
     // public void Add_WithMoreThanTwoNumbers_ThrowsException()
