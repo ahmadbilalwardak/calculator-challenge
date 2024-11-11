@@ -22,8 +22,8 @@ Calculator App is a console-based calculator application designed to perform bas
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/CalculatorApp.git
-   cd CalculatorApp
+   git clone https://github.com/ahmadbilalwardak/calculator-challenge
+   cd calculator-challenge/CalculatorApp
 
 2. Build the application:
 
