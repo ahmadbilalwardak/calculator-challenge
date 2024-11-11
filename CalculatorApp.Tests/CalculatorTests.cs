@@ -22,20 +22,6 @@ public class CalculatorTests
     }
 
     [Test]
-    public void Add_WithTwoNumbers_ReturnsSum()
-    {
-        var result = _calculator.Add("1,5000");
-        Assert.That(result, Is.EqualTo(5001));
-    }
-
-    // [Test]
-    // public void Add_WithNegativeNumber_ReturnsCorrectSum()
-    // {
-    //     var result = _calculator.Add("4,-3");
-    //     Assert.That(result, Is.EqualTo(1));
-    // }
-
-    [Test]
     public void Add_WithEmptyInput_ReturnsZero()
     {
         var result = _calculator.Add("");
@@ -49,12 +35,6 @@ public class CalculatorTests
         var result = _calculator.Add("5,tytyt");
         Assert.That(result, Is.EqualTo(5));
     }
-
-    // [Test]
-    // public void Add_WithMoreThanTwoNumbers_ThrowsException()
-    // {
-    //     Assert.Throws<ArgumentException>(() => _calculator.Add("1,2,3"));
-    // }
     
     [Test]
     public void Add_WithMoreThanTwoNumbers_ReturnsCorrectSum()
@@ -76,4 +56,34 @@ public class CalculatorTests
     {
         Assert.Throws<ArgumentException>(() => _calculator.Add("2,-3,-1,5"));
     }
+    
+    [Test]
+    public void Add_WithNumberGreaterThan1000_IgnoresNumber()
+    {
+        var result = _calculator.Add("2,1001,6");
+        Assert.That(result, Is.EqualTo(8));
+    }
+
+    // This test was working before step 2
+    // [Test]
+    // public void Add_WithMoreThanTwoNumbers_ThrowsException()
+    // {
+    //     Assert.Throws<ArgumentException>(() => _calculator.Add("1,2,3"));
+    // }
+
+    // This test was working before step 5
+    // [Test]
+    // public void Add_WithTwoNumbers_ReturnsSum()
+    // {
+    //     var result = _calculator.Add("1,5000");
+    //     Assert.That(result, Is.EqualTo(5001));
+    // }
+
+    // This test was working before step 4
+    // [Test]
+    // public void Add_WithNegativeNumber_ReturnsCorrectSum()
+    // {
+    //     var result = _calculator.Add("4,-3");
+    //     Assert.That(result, Is.EqualTo(1));
+    // }
 }

@@ -17,7 +17,7 @@ namespace CalculatorApp
             // Then, attempt to parse each entry as an integer, defaulting to 0 for any invalid and empty values.
             // Finally, convert the sequence into an array and return it as `numbers`.
             var numbers = value.Split(delimeters, StringSplitOptions.None)
-                            .Select(n => int.TryParse(n, out int number) ? number : 0)
+                            .Select(n => int.TryParse(n, out int number) && number <= 1000 ? number : 0)
                             .ToArray();
 
             // Look for negative numbers and thow exception if found any
