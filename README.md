@@ -38,42 +38,42 @@ Calculator App is a console-based calculator application designed to perform bas
 ### Usage
 
 When you run the application, you’ll see a welcome message. You can then enter numbers and configure options to customize your calculation.
-Example Commands
 
-    Basic Addition:
-        Input: 1,2,3
-        Result: 6
+#### Example Commands
 
-    With Custom Delimiter:
-        Alternate Delimiter: |
-        Input: 1|2|3
-        Result: 6
+- **Basic Addition**:
+  - Input: `1,2,3`
+  - Result: `6`
 
-    Deny Negative Numbers:
-        If you enter yes to deny negative numbers, and the input contains -1, the application will throw an error with the list of negative numbers.
+- **With Custom Delimiter**:
+  - Alternate Delimiter: `|`
+  - Input: `1|2|3`
+  - Result: `6`
+
+- **Deny Negative Numbers**:
+  - If you enter `yes` to deny negative numbers, and the input contains `-1`, the application will throw an error with the list of negative numbers.
 
 ### Code Structure
 
-    CalculatorApp: The main project directory.
-        CalculatorAppRuner.cs: Entry point of the console application, manages user interaction and input configuration.
-        Calculator.cs: Main calculator class, performs arithmetic operations.
-        Helpers:
-            Parser.cs: Handles parsing input, extracting numbers and delimiters.
-    CalculatorApp.Tests: 
-        CalculatorTests.cs: This file contains all test cases / examples added in coding challenge.
+**CalculatorApp:** The main project directory.
+- **CalculatorAppRunner.cs:** Entry point of the console application, manages user interaction and input configuration.
+- **Calculator.cs:** Main calculator class, performs arithmetic operations.
+- **Helpers:**
+  - **Parser.cs:** Handles parsing input, extracting numbers and delimiters.
+
+**CalculatorApp.Tests:**
+- **CalculatorTests.cs:** This file contains all test cases and examples added in the coding challenge.
 
 ### Running Tests
 
 The application includes unit tests for key features. To run the tests:
 
-Navigate to the test project directory.
+Navigate to the test project directory and run tests:
 
-  ```bash
-  cd CalculatorApp.Tests
-
-Run the tests:
     ```bash
+    cd CalculatorApp.Tests
     dotnet test
+
 
 ### Contributing
 
@@ -89,3 +89,4 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 This Markdown file provides all the information in a structured and formatted way, ready to be copied into a `README.md` file.
 
+## Developed by: Ahmad Bilal Wardak
