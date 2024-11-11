@@ -50,9 +50,16 @@ public class CalculatorTests
         Assert.That(result, Is.EqualTo(5));
     }
 
+    // [Test]
+    // public void Add_WithMoreThanTwoNumbers_ThrowsException()
+    // {
+    //     Assert.Throws<ArgumentException>(() => _calculator.Add("1,2,3"));
+    // }
+    
     [Test]
-    public void Add_WithMoreThanTwoNumbers_ThrowsException()
+    public void Add_WithMoreThanTwoNumbers_ReturnsCorrectSum()
     {
-        Assert.Throws<ArgumentException>(() => _calculator.Add("1,2,3"));
+        var result = _calculator.Add("1,2,3,4,5,6,7,8,9,10,11,12");
+        Assert.That(result, Is.EqualTo(78));
     }
 }

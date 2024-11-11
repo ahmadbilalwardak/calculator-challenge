@@ -14,8 +14,8 @@ namespace CalculatorApp
                             .Select(n => int.TryParse(n, out int number) ? number : 0)
                             .ToArray();
                             
-            if (numbers.Length > 2)
-                throw new ArgumentException("Only up to two numbers are allowed.");
+            // if (numbers.Length > 2)
+            //     throw new ArgumentException("Only up to two numbers are allowed.");
 
             // Based on Stretch goals #1, here we generate the formula for numbers addition.
             var formula = string.Join(" + ", numbers.Select(n => n < 0 ? $"({n})" : n.ToString()));
