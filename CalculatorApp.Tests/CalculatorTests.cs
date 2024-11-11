@@ -2,6 +2,7 @@ namespace CalculatorApp.Tests;
 
 using NUnit.Framework;
 using CalculatorApp;
+using CalculatorApp.Helpers;
 
 [TestFixture]
 public class CalculatorTests
@@ -11,7 +12,11 @@ public class CalculatorTests
     [SetUp]
     public void Setup()
     {
-        _calculator = new Calculator();
+       // Instantiate dependencies
+        var parser = new Parser();
+        
+        // Pass dependencies to Calculator
+        _calculator = new Calculator(parser);
     }
 
     [Test]
