@@ -80,6 +80,21 @@ public class CalculatorTests
         Assert.That(result, Is.EqualTo(102));
     }
 
+    [Test]
+    public void Add_WithSingleMultiCharacterDelimiter_ReturnsSum()
+    {
+        var input = "//[***]\n1***2***3";
+        var result = _calculator.Add(input);
+        Assert.That(result, Is.EqualTo(6));
+    }
+
+    [Test]
+    public void Add_WithMultipleDelimitersOfAnyLength_ReturnsSum()
+    {
+        var input = "//[*][!!][r9r]\n11r9r22*hh*33!!44";
+        var result = _calculator.Add(input);
+        Assert.That(result, Is.EqualTo(110));
+    }
 
     // This test was working before step 2
     // [Test]

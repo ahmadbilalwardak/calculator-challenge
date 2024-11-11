@@ -15,18 +15,22 @@ namespace CalculatorApp
             // Replace \n with \\n to avoid backslash escaping in split
             value = value.Replace("\\n", "\n");
 
-            // Check for custom delimiter of any length using format: //[{delimiter}]\n{numbers}
-            if (value.StartsWith("//") && value.Contains("\n"))
-            {
-                string pattern = @"^//(\[(.+?)\]|(.))\n";
-                var match = Regex.Match(value, pattern);
+            // Check for custom delimiters (single character, multiple character and multiple inside square brackets)
+            var match = Regex.Match(value, @"^//(?:\[(.+?)\]|(.))\n");
 
-                if (match.Success)
+            if (match.Success)
+            {
+                // Multi-character delimiters in square brackets
+                if (match.Groups[1].Success) 
                 {
-                    // The pattern is divided into groups group 2 is for the multi-character delimiter 
-                    // and group 3 is for single character delimiter
-                    var customDelimiter = match.Groups[2].Success ? match.Groups[2].Value : match.Groups[3].Value;
-                    delimiters.Add(customDelimiter);
+                    // Extract all multi-character delimiters within square brackets
+                    delimiters.AddRange(Regex.Matches(value, @"\[(.+?)\]")
+                                             .Cast<Match>()
+                                             .Select(m => m.Groups[1].Value));
+                }
+                else if (match.Groups[2].Success) // Single character delimiter
+                {
+                    delimiters.Add(match.Groups[2].Value);
                 }
             }
 
