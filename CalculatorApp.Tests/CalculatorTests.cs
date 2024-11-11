@@ -28,12 +28,12 @@ public class CalculatorTests
         Assert.That(result, Is.EqualTo(5001));
     }
 
-    [Test]
-    public void Add_WithNegativeNumber_ReturnsCorrectSum()
-    {
-        var result = _calculator.Add("4,-3");
-        Assert.That(result, Is.EqualTo(1));
-    }
+    // [Test]
+    // public void Add_WithNegativeNumber_ReturnsCorrectSum()
+    // {
+    //     var result = _calculator.Add("4,-3");
+    //     Assert.That(result, Is.EqualTo(1));
+    // }
 
     [Test]
     public void Add_WithEmptyInput_ReturnsZero()
@@ -69,5 +69,11 @@ public class CalculatorTests
         var input = "1\n2,3";
         var result = _calculator.Add(input);
         Assert.That(result, Is.EqualTo(6));
+    }
+    
+    [Test]
+    public void Add_WithNegativeNumbers_ThrowsException()
+    {
+        Assert.Throws<ArgumentException>(() => _calculator.Add("2,-3,-1,5"));
     }
 }
