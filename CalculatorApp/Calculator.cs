@@ -7,10 +7,16 @@ namespace CalculatorApp
             if (string.IsNullOrWhiteSpace(value))
                 return 0;
 
+            // Generate an array of delimeres
+            var delimeters = new[] {",", "\n"};
+
+            // Replace \n with \\n to avoid backslash escaping in split
+            value = value.Replace("\\n", "\n");
+
             // First, split the input `value` by commas
             // Then, attempt to parse each entry as an integer, defaulting to 0 for any invalid and empty values.
             // Finally, convert the sequence into an array and return it as `numbers`.
-            var numbers = value.Split(",")
+            var numbers = value.Split(delimeters, StringSplitOptions.None)
                             .Select(n => int.TryParse(n, out int number) ? number : 0)
                             .ToArray();
                             
