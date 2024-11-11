@@ -29,10 +29,11 @@ Calculator App is a console-based calculator application designed to perform bas
 
     ```bash
     dotnet build
+    
+2. Run the application:
 
-    Run the application:
-
-    dotnet run --project CalculatorApp
+    ```bash
+    dotnet run
 
 ### Usage
 
@@ -65,15 +66,16 @@ Example Commands
 
 The application includes unit tests for key features. To run the tests:
 
-    Navigate to the test project directory.
+Navigate to the test project directory.
 
-cd CalculatorApp.Tests
+  ```bash
+  cd CalculatorApp.Tests
 
 Run the tests:
     ```bash
     dotnet test
 
-Contributing
+### Contributing
 
     a. Fork the repository.
     b. Create a feature branch (git checkout -b feature/YourFeature).
@@ -81,7 +83,7 @@ Contributing
     d. Push to the branch (git push origin feature/YourFeature).
     e. Open a pull request.
 
-License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
