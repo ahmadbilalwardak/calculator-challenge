@@ -18,7 +18,7 @@ namespace CalculatorApp
 
             // Get additional options from the user
             Console.Write("Alternate delimiter (leave blank for default): ");
-            string? alternateDelimiter = Console.ReadLine() ?? null;
+            string? alternateDelimiter = string.IsNullOrWhiteSpace(Console.ReadLine()) ? null : Console.ReadLine()?.Trim();
 
             Console.Write("Deny negative numbers? (yes/no): ");
             bool denyNegativeNumbers = Console.ReadLine()?.Trim().ToLower() == "yes";
@@ -43,7 +43,11 @@ namespace CalculatorApp
 
                 try
                 {
+                    // _calculator.Add(input, denyNegativeNumbers, upperBound, alternateDelimiter);
                     _calculator.Add(input, denyNegativeNumbers, upperBound, alternateDelimiter);
+                    _calculator.Subtract(input, denyNegativeNumbers, upperBound, alternateDelimiter);
+                    _calculator.Multiply(input, denyNegativeNumbers, upperBound, alternateDelimiter);
+                    _calculator.Divide(input, denyNegativeNumbers, upperBound, alternateDelimiter);
                 }
                 catch (Exception ex)
                 {

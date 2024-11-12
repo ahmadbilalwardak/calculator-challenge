@@ -53,7 +53,9 @@ namespace CalculatorApp.Helpers
             // First, split the input `value` by delimiters 
             // Then, attempt to parse each entry as an integer, defaulting to 0 for any invalid and empty values.
             // Finally, convert the sequence into an array and return it as `numbers`.
-            return Regex.Split(input, string.Join("|", delimiters.Select(Regex.Escape)))
+            string splitPattern = string.Join("|", delimiters.Select(Regex.Escape));
+            
+            return Regex.Split(input, splitPattern)
                         .Select(n => int.TryParse(n, out int number) && number <= upperBound ? number : 0)
                         .ToArray();
         }
